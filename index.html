@@ -21,62 +21,71 @@
       const choices = ['rock', 'paper', 'scissors'];
 
       if (!choices.includes(playerSelection)) { 
-        console.log(`You chose ${playerSelection}`);
-        console.log(`Computer chose ${computerSelection}`);
-        return 'Invalid entry';
+        return 'Invalid entry.';
       }
 
       else if (playerSelection === computerSelection) {
-        console.log(`You chose ${playerSelection}`);
-        console.log(`Computer chose ${computerSelection}`);
-        return 'It\'s a tie!';
+        return `${playerSelection} vs. ${computerSelection}...It\'s a tie!`;
       }
 
       else if (playerSelection === choices[0] && computerSelection == choices[1]) {
-        console.log(`You chose ${playerSelection}`);
-        console.log(`Computer chose ${computerSelection}`);
-        return 'You lose! Paper covers rock!'
+        return `${playerSelection} vs. ${computerSelection}...You lose! Paper covers rock!`
       }
 
       else if (playerSelection === choices[0] && computerSelection == choices[2]) {
-        console.log(`You chose ${playerSelection}`);
-        console.log(`Computer chose ${computerSelection}`);
-        return 'You win! Rock beats scissors!'
+        return `${playerSelection} vs. ${computerSelection}...You win! Rock beats scissors!`
       }
 
       else if (playerSelection === choices[1] && computerSelection == choices[0]) {
-        console.log(`You chose ${playerSelection}`);
-        console.log(`Computer chose ${computerSelection}`);
-        return 'You win! Paper covers rock!'
+        return `${playerSelection} vs. ${computerSelection}...You win! Paper covers rock!`
       }
 
       else if (playerSelection === choices[1] && computerSelection == choices[2]) {
-        console.log(`You chose ${playerSelection}`);
-        console.log(`Computer chose ${computerSelection}`);
-        return 'You lose! Scissors cut paper!'
+        return `${playerSelection} vs. ${computerSelection}...You lose! Scissors cut paper!`
       }
 
       else if (playerSelection === choices[2] && computerSelection == choices[0]) {
-        console.log(`You chose ${playerSelection}`);
-        console.log(`Computer chose ${computerSelection}`);
-        return 'You lose! Rock beats scissors!'
+        return `${playerSelection} vs. ${computerSelection}...You lose! Rock beats scissors!`
       }
 
       else if (playerSelection === choices[2] && computerSelection == choices[1]) {
-        console.log(`You chose ${playerSelection}`);
-        console.log(`Computer chose ${computerSelection}`);
-        return 'You win! Scissors cut paper!'
+        return `${playerSelection} vs. ${computerSelection}...You win! Scissors cut paper!`
       }
     }
 
-    const playerSelection = 'paper';                                  //**********change this value to play against computer!**********
-    const computerSelection = chooseRandom();
-    console.log(playRound(playerSelection, computerSelection))
+    // const playerSelection = prompt('type your weapon');          //**********change this value to play against computer!**********
+    // const computerSelection = chooseRandom();
+    // console.log(playRound(playerSelection, computerSelection))
 
-    //play rounds until a player wins 5 times 
-    function game() {
+    
+    
+    //play a series of rounds 
+    function playRounds(num) {
+      let playerScore = 0;
+      let computerScore = 0;
+
+      for (let i=0; i<num; i++) {
+        console.log(`round ${i+1}...`)
+
+        const playerSelection = prompt('Pick one');         //**********change this value to play against computer!**********
+        const computerSelection = chooseRandom();
         
-    }
+        let result = playRound(playerSelection, computerSelection);
+        console.log(result);
+
+        if (result.includes('win')) {
+          playerScore++;
+          console.log(`you:${playerScore}, computer:${computerScore}`);
+        }
+        else if (result.includes('lose')) {
+          computerScore++;
+          console.log(`you:${playerScore}, computer:${computerScore}`);
+        }
+      }
+      alert(playerScore === computerScore ? 'tie' : playerScore > computerScore ? 'You\'re the grand champion!' : 'Computer won') 
+    } 
+
+    playRounds(5);
 
   </script>
 </body>
