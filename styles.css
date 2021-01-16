@@ -1,0 +1,24 @@
+h1, h3 {
+  text-align: center;
+  color: blueviolet;
+  margin: 50px;
+}
+
+#buttons {
+  width: 50%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn {
+  width: 100px;
+  height: 100px;
+}
+
+.far {
+  width: 10px;
+  height: 10px;
+}

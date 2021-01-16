@@ -3,84 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
   <title>R.P.S</title>
 </head>
 <body>
-  <h1 style="text-align: center;">Look in the console! UI coming soon.</h1>
+  <h1>Rock Paper Scissors</h1>
+  <h3>look in the console</h3>
   
-  <script>
-  //choose and return a random value from the list of weapons
-    function chooseRandom() {
-      const choices = ['rock', 'paper', 'scissors'];
-      let rand = Math.floor(Math.random() * Math.floor(3));
-      return choices[rand]  
-    }
+  <div id="buttons">
+    <button class="btn" id="rock">Rock</button>
+    <button class="btn" id="paper">Paper</button>
+    <button class="btn" id="scissors">Scissors</button>
+  </div>
 
-    function playRound(playerSelection, computerSelection) {
-      playerSelection = playerSelection.toLowerCase();
-      const choices = ['rock', 'paper', 'scissors'];
+  <div id=results></div>
 
-      if (!choices.includes(playerSelection)) { 
-        return 'Invalid entry.';
-      }
+  <!-- <i class="far fa-hand-rock"></i>
+  <i class="far fa-hand-paper"></i>
+  <i class="far fa-hand-scissors"></i> -->
 
-      else if (playerSelection === computerSelection) {
-        return `${playerSelection} vs. ${computerSelection}...It\'s a tie!`;
-      }
 
-      else if (playerSelection === choices[0] && computerSelection == choices[1]) {
-        return `${playerSelection} vs. ${computerSelection}...You lose! Paper covers rock!`
-      }
-
-      else if (playerSelection === choices[0] && computerSelection == choices[2]) {
-        return `${playerSelection} vs. ${computerSelection}...You win! Rock beats scissors!`
-      }
-
-      else if (playerSelection === choices[1] && computerSelection == choices[0]) {
-        return `${playerSelection} vs. ${computerSelection}...You win! Paper covers rock!`
-      }
-
-      else if (playerSelection === choices[1] && computerSelection == choices[2]) {
-        return `${playerSelection} vs. ${computerSelection}...You lose! Scissors cut paper!`
-      }
-
-      else if (playerSelection === choices[2] && computerSelection == choices[0]) {
-        return `${playerSelection} vs. ${computerSelection}...You lose! Rock beats scissors!`
-      }
-
-      else if (playerSelection === choices[2] && computerSelection == choices[1]) {
-        return `${playerSelection} vs. ${computerSelection}...You win! Scissors cut paper!`
-      }
-    }
-    
-    //play a series of rounds 
-    function playRounds(num) {
-      let playerScore = 0;
-      let computerScore = 0;
-
-      for (let i=0; i<num; i++) {
-        console.log(`round ${i+1}...`)
-
-        const playerSelection = prompt('Pick one');         //**********change this value to play against computer!**********
-        const computerSelection = chooseRandom();
-        
-        let result = playRound(playerSelection, computerSelection);
-        console.log(result);
-
-        if (result.includes('win')) {
-          playerScore++;
-          console.log(`you:${playerScore}, computer:${computerScore}`);
-        }
-        else if (result.includes('lose')) {
-          computerScore++;
-          console.log(`you:${playerScore}, computer:${computerScore}`);
-        }
-      }
-      alert(playerScore === computerScore ? 'tie' : playerScore > computerScore ? 'You\'re the grand champion!' : 'Computer won') 
-    } 
-
-    playRounds(5);
-  </script>
-
+  <script src="index.js"></script>  
 </body>
 </html>
