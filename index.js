@@ -1,4 +1,7 @@
 
+let round = 0;
+let player = 0;
+let computer = 0;
 
 //choose and return a random value from the list of weapons
 function chooseRandom() {
@@ -7,74 +10,95 @@ function chooseRandom() {
   return choices[rand]  
 }
 
-// --------now replace the console logs with divs!!!!!!
+
 function playRound(playerSelection, computerSelection) {
   const choices = ['rock', 'paper', 'scissors'];
+  const results = document.querySelector('#results');
+  const stats = document.getElementById("stats");
+
+  let round = 0
+  let playerScore = 0;
+  let computerScore = 0;
 
    if (playerSelection === computerSelection) {
+    round++;
+    results.innerHTML = `${playerSelection} vs. ${computerSelection}...It\'s a tie!`;
     console.log(`${playerSelection} vs. ${computerSelection}...It\'s a tie!`);
+    console.log(round, playerScore, computerScore);
   }
-
-   if (playerSelection === choices[0] && computerSelection == choices[1]) {
-    console.log(`${playerSelection} vs. ${computerSelection}... Paper covers rock! You lose!`)
-  }
-
-   if (playerSelection === choices[0] && computerSelection == choices[2]) {
+   else if (playerSelection === choices[0] && computerSelection == choices[2]) {
+    round++;
+    playerScore++;
+    results.innerHTML = `${playerSelection} vs. ${computerSelection}... Rock beats scissors! You win!`;  
     console.log(`${playerSelection} vs. ${computerSelection}... Rock beats scissors! You win!`)
-    
+    console.log(round, playerScore, computerScore); 
   }
-   if (playerSelection === choices[1] && computerSelection == choices[0]) {
+   else if (playerSelection === choices[1] && computerSelection == choices[0]) {
+    round++;
+    playerScore++;
+    results.innerHTML = `${playerSelection} vs. ${computerSelection}... Paper covers rock! You win!`;  
     console.log(`${playerSelection} vs. ${computerSelection}... Paper covers rock! You win!`)
+    console.log(round, playerScore, computerScore);
   }
-
-   if (playerSelection === choices[1] && computerSelection == choices[2]) {
-    console.log(`${playerSelection} vs. ${computerSelection}... Scissors cut paper! You lose!`)
-    
-  }
-
-   if (playerSelection === choices[2] && computerSelection == choices[0]) {
-    console.log(`${playerSelection} vs. ${computerSelection}...Rock beats scissors! You lose!`)
-  }
-
-   if (playerSelection === choices[2] && computerSelection == choices[1]) {
+  else if (playerSelection === choices[2] && computerSelection == choices[1]) {
+    round++;
+    playerScore++;
+    results.innerHTML = `${playerSelection} vs. ${computerSelection}... Scissors cut paper! You win!`;
     console.log(`${playerSelection} vs. ${computerSelection}... Scissors cut paper! You win!`)
+    console.log(round, playerScore, computerScore);
+  } 
+  else if (playerSelection === choices[0] && computerSelection == choices[1]) {
+    round++;
+    computerScore++;
+    results.innerHTML = `${playerSelection} vs. ${computerSelection}... Paper covers rock! You lose!` ;  
+    console.log(`${playerSelection} vs. ${computerSelection}... Paper covers rock! You lose!`)
+    console.log(round, playerScore, computerScore);
+  }
+   else if (playerSelection === choices[1] && computerSelection == choices[2]) {
+    round++;
+    computerScore++;
+    results.innerHTML = `${playerSelection} vs. ${computerSelection}... Scissors cut paper! You lose!`;  
+    results.innerHTML += `Round: ${round}`;
+    console.log(`${playerSelection} vs. ${computerSelection}... Scissors cut paper! You lose!`)  
+    console.log(round, playerScore, computerScore);
+  }
+   else if (playerSelection === choices[2] && computerSelection == choices[0]) {
+    round++;
+    computerScore++;
+    results.innerHTML = `${playerSelection} vs. ${computerSelection}...Rock beats scissors! You lose!`; 
+    results.innerHTML += `Round: ${round}`;
+    console.log(`${playerSelection} vs. ${computerSelection}...Rock beats scissors! You lose!`)
+    console.log(round, playerScore, computerScore);
+  }
+  else {
+    results.innerHTML = "";
   }
   return;
 }
 
 
-const btn = document.querySelectorAll(".btn")
-btn.forEach(b => {
-  b.addEventListener('click', () => {
-    playRound(b.getAttribute("id"), chooseRandom())
-  })
-});
+function handleWeaponClick() {
+  const btn = document.querySelectorAll(".btn");
+  btn.forEach(b => {
+    b.addEventListener('click', () => {
+      playRound(b.getAttribute("id"), chooseRandom())
+    })
+  });
+}
 
+function displayStats() {
+  const stats = document. querySelector("stats");
 
-//play a series of rounds and track scores
-function playRounds(num) {
-  let playerScore = 0;
-  let computerScore = 0;
+  //stats.innerHTML = round;
+  // stats.innerHTML += playerScore;
+  // stats.innerHTML += computer;
+  //const round = document.createElement("span");
+  // const player = document.createElement("span");
+  // const computer = document.createElement("span");
 
-  for (let i=0; i<num; i++) {
-    console.log(`round ${i+1}...`)
+  stats.innerHTML = "Round:" + round;
+  console.log('stats')
+}
 
-    const playerSelection = prompt('Pick one');         //**********change this value to play against computer!**********
-    const computerSelection = chooseRandom();
-    
-    let result = playRound(playerSelection, computerSelection);
-    console.log(result);
-
-    if (result.includes('win')) {
-      playerScore++;
-      console.log(`you:${playerScore}, computer:${computerScore}`);
-    }
-    else if (result.includes('lose')) {
-      computerScore++;
-      console.log(`you:${playerScore}, computer:${computerScore}`);
-    }
-  }
-  alert(playerScore === computerScore ? 'tie' : playerScore > computerScore ? 'You\'re the grand champion!' : 'Computer won') 
-} 
-
-//playRounds(5);
+handleWeaponClick();
+displayStats();
