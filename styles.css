@@ -2,7 +2,11 @@
   background-color: #E7E5DF;
 }
 
-h1, h3 {
+body {
+  margin: auto;
+}
+
+h1 {
   text-align: center;
   color: #0075F2;
   margin: 50px;
@@ -26,11 +30,15 @@ h2 {
 }
 
 #stats {
-  height: 10vh;
+  height: auto;
   width: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#scores {
+  padding: 4px;
 }
 
 #results {
@@ -42,8 +50,8 @@ h2 {
   position: relative;
   top: 50px;
   margin: 20px;
-  width: 15vw;
-  height: 4vh;
+  width: auto;
+  height: 5vh;
   margin-left: auto;
   margin-right: auto;
 }
