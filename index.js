@@ -95,21 +95,25 @@ function handleResetClick() {
 
 //****************HTML TEMPLATES**********/
 function displayStats() {
-  const statbox = document.querySelector("#stats");
+  const statBox = document.querySelector("#stats");
+  const resultBox = document.querySelector("#results")
 
-  statbox.innerHTML = 
+  statBox.innerHTML = 
   `<h2>Round: ${stats.round}</h2>
-  <div id="scores"> 
-   Player: ${stats.playerScore}
-   Computer: ${stats.computerScore}
-   Tie: ${stats.tieCount}
-  </div>
-  <div id="game-results"> 
-   Player Chose: ${stats.playerChoice}
-   Computer Chose: ${stats.computerChoice}
-   Winner: ${stats.winner}
-  </div>
-  `
+    <div id="scores"> 
+      <p>You: ${stats.playerScore}</p>
+      <p>Computer: ${stats.computerScore}</p>
+      <p>Tie: ${stats.tieCount}</p>   
+    </div>`
+
+  resultBox.innerHTML = 
+    `<p>${stats.winner}</p>
+
+     <div id="inner-results">
+      <span>You chose: <b> ${stats.playerChoice} </b></span>
+      <span>Computer chose: <b> ${stats.computerChoice} </b></span> 
+     </div>
+    `
   
 }
 
