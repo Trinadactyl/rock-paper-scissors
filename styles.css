@@ -56,6 +56,14 @@ h2 {
   margin-right: auto;
 }
 
+#game-results {
+  border: solid purple 2px;
+  /* position: relative; */
+  top: 50px;
+  height: auto;
+  width: auto;
+}
+
 .btn {
   width: 30%;
   height: 200px; 
