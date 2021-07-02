@@ -1,11 +1,20 @@
+* {
+  background-color: #E7E5DF;
+}
+
 h1, h3 {
   text-align: center;
-  color: rgb(128, 44, 44);
+  color: #0075F2;
   margin: 50px;
+  font-family: 'Rammetto One', cursive;
+}
+
+h2 {
+  font-family: 'Happy Monkey', cursive;
 }
 
 #buttons {
-  width: 60%;
+  width: 80%;
   height: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -13,24 +22,39 @@ h1, h3 {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  ;
 }
 
 #stats {
-  border: 2px solid red;
   height: 10vh;
   width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #results {
   padding: 20px;
 }
 
+#reset {
+  display: block;
+  position: relative;
+  top: 50px;
+  margin: 20px;
+  width: 15vw;
+  height: 4vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .btn {
   width: 30%;
-  height: 100px; 
+  height: 200px; 
+  border: none;
 }
 
 .far {
-  font-size: 2em;
+  font-size: 8vw;
   color: black;
 }

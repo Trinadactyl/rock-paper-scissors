@@ -15,46 +15,33 @@ function chooseRandom() {
 
 function playRound(playerSelection, computerSelection) {
   const choices = ['rock', 'paper', 'scissors'];
-  const results = document.querySelector('#results');
-  
-
 
    if (playerSelection === computerSelection) {
-    results.innerHTML = `${playerSelection} vs. ${computerSelection}...It\'s a tie!`;
     console.log(`${playerSelection} vs. ${computerSelection}...It\'s a tie!`);
   }
     if (playerSelection === choices[0] && computerSelection == choices[2]) {
-    stats.player++;
-    results.innerHTML = `${playerSelection} vs. ${computerSelection}... Rock beats scissors! You win!`;  
+    stats.player++; 
     console.log(`${playerSelection} vs. ${computerSelection}... Rock beats scissors! You win!`)
   }
     if (playerSelection === choices[1] && computerSelection == choices[0]) {
     stats.player++;
-    results.innerHTML = `${playerSelection} vs. ${computerSelection}... Paper covers rock! You win!`;  
     console.log(`${playerSelection} vs. ${computerSelection}... Paper covers rock! You win!`)
   }
    if (playerSelection === choices[2] && computerSelection == choices[1]) {
     stats.player++;
-    results.innerHTML = `${playerSelection} vs. ${computerSelection}... Scissors cut paper! You win!`;
     console.log(`${playerSelection} vs. ${computerSelection}... Scissors cut paper! You win!`)
   } 
    if (playerSelection === choices[0] && computerSelection == choices[1]) {
-    stats.computer++
-    results.innerHTML = `${playerSelection} vs. ${computerSelection}... Paper covers rock! You lose!` ;  
+    stats.computer++ 
     console.log(`${playerSelection} vs. ${computerSelection}... Paper covers rock! You lose!`)
   }
     if (playerSelection === choices[1] && computerSelection == choices[2]) {
     stats.computer++
-    results.innerHTML = `${playerSelection} vs. ${computerSelection}... Scissors cut paper! You lose!`;  
     console.log(`${playerSelection} vs. ${computerSelection}... Scissors cut paper! You lose!`)  
   }
     if (playerSelection === choices[2] && computerSelection == choices[0]) {
     stats.computer++
-    results.innerHTML = `${playerSelection} vs. ${computerSelection}...Rock beats scissors! You lose!`; 
     console.log(`${playerSelection} vs. ${computerSelection}...Rock beats scissors! You lose!`)
-  }
-   {
-    results.innerHTML = "";
   }
   return;
 }
@@ -96,9 +83,11 @@ function displayStats() {
   const statbox = document.querySelector("#stats");
 
   statbox.innerHTML = 
-  `Round: ${stats.round}
-   Player Score: ${stats.player}
-   Computer Score: ${stats.computer}`
+  `<h2>Round: ${stats.round}</h2>
+  <div id="scores"> 
+   Player: ${stats.player}
+   Computer: ${stats.computer}
+  </div>`
 }
 
 
